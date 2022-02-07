@@ -7,11 +7,15 @@
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script>
         const root = document.getElementById("root");
-        const h3title = React.createElement("h3", null, "This is first h3");
+        const h3title = React.createElement("h3", {
+            onMouseEnter: () => console.log("mouse enter"),        
+            }, "This is first h3");
         const btn = React.createElement("button", {
             onClick: () => console.log("button clicked"),
+            style: {backgroundColor: "beige",
+            },
         }, "click me");
-        const div = React.createElement("div", null, [h3title, btn]);
-        ReactDOM.render(div, root);
+        const container = React.createElement("div", null, [h3title, btn]);
+        ReactDOM.render(container, root);
     </script>
 </html>

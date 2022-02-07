@@ -5,28 +5,24 @@
     
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script crossorigin src="https://unpkg.com/babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         const root = document.getElementById("root");
-        const Title = () => (
-            <h3 id="title" 
-            onMouseEnter={() => console.log("mouse enter")}>
-            This is first h3
-            </h3>
-            );
-        
-        const Btn = () => (
-            <button id="clickBtn" 
-            style={{
-                backgroundColor="tomato",
-                }} 
-                onClick={() => console.log("button clicked")}
-            >
-                Click me
-                </button>
-            );
+        let counter = 0;
 
-        const Container = <div><Title /> <Btn /></div>
-        ReactDOM.render(Container, root);
+        function render() {
+            ReactDOM.render(<Container />, root);
+        }
+
+        function countUp() {
+            counter++;
+            render();
+        }
+        const Container = () => ( <div>
+        <h3>Total clicks: {counter}</h3>
+        <button onClick={countUp}>Click me</button>
+        </div>
+        );
+        render();
     </script>
 </html>

@@ -10,15 +10,15 @@
         const root = document.getElementById("root");
         
         function App() {
-            const [counter, modifier] = React.useState(0);
+            const [counter, setCounter] = React.useState(0);
             const onClick = () => {
-                counter++;
-                console.log(counter);
+                // setCounter(counter+1);
+                setCounter((current) => current + 1);
             };
             return (
                 <div>
-                    <h3>Total clicks: {data[0]}</h3>
-                    <button onclick={onClick}>Click Me</button>
+                    <h3>Total clicks: {counter}</h3>
+                    <button onClick={onClick}>Click Me</button>
                 </div>
             );
         }
